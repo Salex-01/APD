@@ -1,0 +1,19 @@
+--  Flooding  --
+
+    there is only one message in the network
+    this message is emitted by a (single) initiator (called InitNode)
+    it is transmitted to all the neighbor nodes if it has not been seen yet.
+    
+Algorithm: (the message is called "water")
+
+1:if InitNode then
+2:  send the walker to all neighbors
+3:  stop
+
+4:forever
+5:  receive water from some node N
+6:  if EndNode then
+7:    do nothing! 
+8:  else
+9:    send the walker to all neighbors
+10:    stop
