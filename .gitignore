@@ -1,7 +1,7 @@
 # Log file
 *.log
 
-.zip
+*.zip
 
 # BlueJ files
 *.ctxt
