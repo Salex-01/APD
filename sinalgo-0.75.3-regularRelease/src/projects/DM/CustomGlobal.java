@@ -2,6 +2,8 @@
 
 package projects.DM;
 
+import java.util.Random;
+
 import projects.DM.nodes.nodeImplementations.DMNode;
 import projects.DM.nodes.nodeImplementations.InitNode;
 import sinalgo.nodes.Node;
@@ -40,7 +42,7 @@ public class CustomGlobal extends AbstractCustomGlobal {
 	/** Button to create a ring network. */
 	@AbstractCustomGlobal.CustomButton(buttonText = "Build a Ring Network")
 	public void ringButton() {
-		buildRing(5);
+		buildRing(15);
 	}
 
 	private void addEdge(Node from, Node to) {
@@ -48,6 +50,9 @@ public class CustomGlobal extends AbstractCustomGlobal {
 	}
 
 	private void buildRing(int numOfNodes) {
+
+		Random r = new Random();
+
 		sinalgo.tools.Tools.removeAllNodes();
 
 		// nodes
@@ -59,13 +64,16 @@ public class CustomGlobal extends AbstractCustomGlobal {
 
 		// the ring...
 		double initAngle = 2 * Math.PI / numOfNodes;
-		double range = 200.0;
+		double range = 350.0;
 		double angle = 0;
 		for (int i = 0; i < numOfNodes; i++) {
 			double posX = centerPosX + range * Math.cos(angle);
 			double posY = centerPosY + range * Math.sin(angle);
 			DMNode node;
 			node = new InitNode();
+
+			node.ID = Math.abs(r.nextInt()) % 100000;
+
 			node.setPosition(posX, posY, 0);
 			node.finishInitializationWithDefaultModels(true);
 			if (i > 0)

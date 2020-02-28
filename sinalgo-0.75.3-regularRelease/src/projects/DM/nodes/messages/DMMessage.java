@@ -20,7 +20,7 @@ public class DMMessage extends Message {
 	public int getID() {
 		return procID;
 	}
-	
+
 	public int getRank() {
 		return rank;
 	}
@@ -30,6 +30,6 @@ public class DMMessage extends Message {
 	}
 
 	public String toString() {
-		return "LeLannMessage" + msgId;
+		return "Message " + rank + "," + procID;
 	}
 }
